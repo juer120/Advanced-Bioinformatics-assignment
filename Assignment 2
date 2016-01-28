@@ -1,0 +1,11 @@
+The mutations identified in the BRAF gene, within the Thyroid TCGA (thca_tcga) dataset
+Position 291: 235 mutations identified, mutation: V600E
+Position 292: 1 mutations identified, mutation: K601E
+
+Step 1: Select "Thyroid" cancer studies. 
+Step 2: Select "Only Mutation" of "Select Data Type Priority".
+Step3: Enter "BRAF" in "Enter Gene Set", then click SUBMIT.
+Step 4: Click green bars for details of each study.
+Step 5: Click "Mutations", put the mouse on mutation domain and click "mutation aligner" .
+Step 6: Select THCA in “Mutations in Pkinase_Tyr by cancer type:”.
+Step 7: Click the position and check if the positions are about BRAF and get details.
