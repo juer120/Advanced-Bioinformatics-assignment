@@ -1,0 +1,14 @@
+CREATE TABLE Mutations
+ (Sample_id VARCHAR(255),
+ Chromosome VARCHAR(255),
+ Position VARCHAR(255),
+ GT VARCHAR(255),
+ Ref TINYTEXT,
+ Var TINYTEXT, 
+ Type TINYTEXT);
+ CREATE TABLE Samples
+ (Sample_id VARCHAR(255),
+  Study_id TINYTEXT,
+  StudyName VARCHAR(255),
+  Age TINYINT(255),
+  Sex TINYINT(255))
