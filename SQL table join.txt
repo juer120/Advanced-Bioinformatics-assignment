@@ -1,0 +1,8 @@
+SELECT *
+FROM Customers
+INNER JOIN Orders
+ON Customers.CustomerID = Orders.CustomerID
+INNER JOIN OrderDetails
+ON Orders.OrderID = OrderDetails.OrderID
+INNER JOIN Employees
+ON Employees.EmployeeID = Orders.EmployeeID
