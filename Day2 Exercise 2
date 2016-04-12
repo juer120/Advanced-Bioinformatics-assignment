@@ -8,7 +8,4 @@ client = MongoClient()
 db = client.biovcf
 cursor = db.vcf.find()
 for i in cursor:
-print (i["rec"]["ann"])
-cursor = db.vcf.find()
-for i in cursor:
-print ("ENST00000263967" in i["rec"]["ann"])
+print ("2,3" in i["rec"]["samples"])
