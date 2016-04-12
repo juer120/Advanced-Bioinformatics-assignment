@@ -1,7 +1,3 @@
-cat PIK3CA.vcf |bio-vcf --samples 2,3  --seval s.dp
-cat PIK3CA.vcf |bio-vcf --sfilter-samples 2,3  --seval s.dp --sfilter "s.dp>7"
-cat PIK3CA.vcf |bio-vcf --sfilter-samples 0,3 --sfilter 's.dp>20' --seval s.dp
-
 emacs PIK3CA_template.json
 {
   "rec": {
