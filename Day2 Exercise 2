@@ -1,0 +1,14 @@
+emacs bio-vcf_template.json
+cat PIK3CA.vcf |bio-vcf --template biovcf_template.json |less
+cat PIK3CA.vcf |bio-vcf --template biovcf_template.json > biovcf.json
+mongoimport --db biovcf --collection vcf --drop --file biovcf.json --jsonArray
+python
+from pymongo import MongoClient
+client = MongoClient()
+db = client.biovcf
+cursor = db.vcf.find()
+for i in cursor:
+print (i["rec"]["ann"])
+cursor = db.vcf.find()
+for i in cursor:
+print ("ENST00000263967" in i["rec"]["ann"])
