@@ -18,8 +18,11 @@ from pymongo import MongoClient
 client = MongoClient()
 db = client.PIK3CA
 cursor = db.vcf.find()
+count = 0
 for i in cursor:
 print (i["rec"]["ann"])
 cursor = db.vcf.find()
 for i in cursor:
-print ("ENST00000263967" in i["rec"]["ann"])
+count += 1:
+if "ENST00000263967" in i["rec"]["samples"]
+print (count)
