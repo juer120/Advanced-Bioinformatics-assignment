@@ -1,6 +1,7 @@
 emacs bio-vcf_template.json
 cat PIK3CA.vcf |bio-vcf --template biovcf_template.json |less
 cat PIK3CA.vcf |bio-vcf --template biovcf_template.json > biovcf.json
+cat PIK3CA.vcf |bio-vcf --sfilter-samples 2,3  --seval s.dp --sfilter "s.dp>7"
 mongoimport --db biovcf --collection vcf --drop --file biovcf.json --jsonArray
 python
 from pymongo import MongoClient
