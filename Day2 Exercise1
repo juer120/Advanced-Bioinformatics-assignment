@@ -1,0 +1,29 @@
+cat PIK3CA.vcf |bio-vcf --samples 2,3  --seval s.dp
+cat PIK3CA.vcf |bio-vcf --sfilter-samples 2,3  --seval s.dp --sfilter "s.dp>7"
+cat PIK3CA.vcf |bio-vcf --sfilter-samples 0,3 --sfilter 's.dp>20' --seval s.dp
+
+emacs PIK3CA_template.json
+{
+  "rec": {
+            "chr": "<%= rec.chrom %>",
+            "pos": <%= rec.pos %>,
+            "ref": "<%= rec.ref %>",
+            "alt": "<%= rec.alt[0] %>",
+            "dp":  <%= rec.info.dp %>,
+            "ann":  '"<%= rec.info.ann %>"'
+   }
+}
+cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json |less
+cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json > PIK3CA.json
+cat PIK3CA.vcf |bio-vcf --eval [r.chr,r.pos,r.info.ann] |grep ENST00000263967|wc -l
+mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json --jsonArray
+python
+from pymongo import MongoClient
+client = MongoClient()
+db = client.PIK3CA
+cursor = db.vcf.find()
+for i in cursor:
+print (i["rec"]["ann"])
+cursor = db.vcf.find()
+for i in cursor:
+print ("ENST00000263967" in i["rec"]["ann"])
