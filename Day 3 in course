@@ -1,0 +1,27 @@
+emacs rdf_template.erb
+=HEADER
+@prefix : <http://biobeat.org/rdf/ns#> .
+=BODY
+<%
+id = ['chr'+rec.chr,rec.pos,rec.alt].join('_')
+%> 
+:<%= id %>
+  :query_id "<%= id %>";
+  :chr "<%= rec.chr %>" ;
+  :alt "<%= rec.alt.join("") %>" ;
+  :pos <%= rec.pos %> . 
+cat gatk_exome.vcf |bio-vcf -v --template rdf_template.erb
+cat gatk_exome.vcf |bio-vcf -v --template rdf_template.erb > my.rdf
+rapper -i turtle my.rdf
+cat my.rdf
+rdf=my.rdf
+uri=http://localhost:8000/data/http://biobeat.org/data/$rdf
+curl -X DELETE $uri
+curl -T $rdf -H 'Content-Type: application/x-turtle' $uri
+emacs sparql1.rq
+SELECT ?id
+WHERE
+{
+  ?id   <http://biobeat.org/rdf/ns#chr>    "X".
+}
+cat sparql1.rq |sparql-query "http://localhost:8000/sparql/" -p 
