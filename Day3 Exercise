@@ -9,7 +9,7 @@ WHERE
 	?recommended up:fullName ?name .
 	?protein rdfs:seeAlso ?db . 
 	?db up:database <http://purl.uniprot.org/database/PDB>.
-    ?protein up:encodedBy ?gene .
+    	?protein up:encodedBy ?gene .
 	?gene skos:prefLabel ?text .
 	FILTER CONTAINS(?text, 'DNA')
 }
