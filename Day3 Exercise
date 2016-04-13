@@ -5,14 +5,12 @@ SELECT ?protein ?name ?gene ?db
 WHERE
 {
 	?protein a up:Protein .
-	?protein up:mnemonic 'A4_HUMAN'
 	?protein up:recommendedName ?recommended .
 	?recommended up:fullName ?name .
-	?protein up:encodedBy ?gene .
-	?gene skos:prefLabel ?text .
-	OPTIONAL (
 	?protein rdfs:seeAlso ?db . 
-	?db up:database <http://purl.uniprot.org/database/PDB>).
+	?db up:database <http://purl.uniprot.org/database/PDB>.
+    ?protein up:encodedBy ?gene .
+	?gene skos:prefLabel ?text .
 	FILTER CONTAINS(?text, 'DNA')
 }
 LIMIT 1000
