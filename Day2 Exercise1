@@ -20,9 +20,6 @@ db = client.PIK3CA
 cursor = db.vcf.find()
 count = 0
 for i in cursor:
-print (i["rec"]["ann"])
-cursor = db.vcf.find()
-for i in cursor:
-if "ENST00000263967" in i["rec"]["ann"]:
-count = count+1
-print (count)
+  if "ENST00000263967" in i["rec"]["ann"]:
+    count = count+1
+  print (count)
