@@ -23,6 +23,6 @@ for i in cursor:
 print (i["rec"]["ann"])
 cursor = db.vcf.find()
 for i in cursor:
-count += 1:
-if "ENST00000263967" in i["rec"]["ann"]
+if "ENST00000263967" in i["rec"]["ann"]:
+count = count+1
 print (count)
