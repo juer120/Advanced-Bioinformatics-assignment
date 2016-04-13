@@ -9,6 +9,6 @@ db = client.biovcf
 cursor = db.vcf.find()
 count = 0
 for i in cursor:
-count += 1
-if i["rec"]["samples"][2]>7 or i["rec"]["samples"][3]>7))
+if i["rec"]["samples"][2]>7 or i["rec"]["samples"][3]>7)):
+count = count+1
 print (count)
