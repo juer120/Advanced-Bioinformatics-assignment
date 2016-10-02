@@ -1,0 +1,185 @@
+1  python
+    2  -unzip
+    3  unzip
+    4  guix package -i unzip
+    5  unzip testvcf.zip 
+    6  bio-vcf --help
+    7  bio-vcf < PIK3CA.vcf 
+    8  bio-vcf --help
+    9  filter cmd
+   10  filter #:#
+   11  filter bio-vcf --seval s.gt <pik3ca.vcf
+   12  bio-vcf --seval s.gt < pik3ca.vcf
+   13  bio-vcf --seval s.gt < PIK3CA.vcf
+   14  bio-vcf --help
+   15  bio-vcf --filter s.gt=0/0 <PIK3CA.vcf
+   16  bio-vcf --h
+   17  bio-vcf --statistics <PIK3CA.vcf
+   18  --unzip
+   19  history
+   20  cat PIK3CA.vcf 
+   21  bio-vcf < PIK3CA.vcf 
+   22  history
+   23  ls
+   24  mongo
+   25  cat gatk_exome.vcf |bio-vcf --eval '[r.chr,r.pos]'
+   26  emacs gatk_template.json
+   27  cat gatk_template.json 
+   28  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   29  clear
+   30  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+   31  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json
+   32  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json --jsonArray
+   33  use gatk
+   34  mongo
+   35  cat gatk_exome.vcf |bio-vcf --eval '[r.chr,r.pos,r.ref,r.alt,r.info.dp]
+
+
+
+
+'
+   36  cat gatk_exome.vcf |bio-vcf --eval '[r.chr,r.pos,r.ref,r.alt,r.info.dp]'
+   37  gatk_exome.vcf |bio-vcf --eval '[r.chr,r.pos,r.ref,r.alt,r.info.dp]' --filter "r.chr=='X'"|grep -v '#' |wc -l
+   38  =>"[r.chr,r.pos,r.ref,r.alt,r.info.dp]", :filter=>"r.chr=='X'"}
+   39  mongo
+   40  history
+   41  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json
+   42  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json --jsonArray
+   43  use gatk
+   44  mongo
+   45  ls
+   46  emacs gatk_template.json 
+   47  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json
+   48  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json --jsonArray
+   49  mongo
+   50  ls
+   51  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json~
+   52  emacs gatk_template
+   53  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   54  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+   55  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   56  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+   57  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   58  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+   59  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json
+   60  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json --jsonArray
+   61  mongo
+   62  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+   63  ls
+   64  less gatk_exome.json 
+   65  cat gatk_template.json
+   66  emacs gatk_template
+   67  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   68  emacs gatk_template.json
+   69  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   70  emacs gatk_template.json
+   71  cat gatk_exome.vcf |bio-vcf --template gatk_template.json |less
+   72  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+   73  less gatk_exome.json 
+   74  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json
+   75  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json --jsonArray
+   76  mongo
+   77  less gatk_exome
+   78  history
+   79  less gatk_exome.json
+   80  ls
+   81  emacs gatk_exome.json 
+   82  emacs gatk_template.json
+   83  less gatk_exome.json
+   84  less gatk_exome.vcf
+   85  emacs gatk_template.json~
+   86  less gatk_exome.json
+   87  clear
+   88  history
+   89  mongoimport --db gatk --collection vcf --drop --file gatk_exome.json --jsonArray
+   90  mongo
+   91  guix package -i python2-pip
+   92  export PYTHONPATH="/home/user/.guix-profile/lib/python2.7/site-packages"
+   93  pip install pymongo
+   94  pip install --install-option="--prefix=$HOME/opt/python" pymongo
+   95  export PYTHONPATH="/home/user/.guix-profile/lib/python2.7/site-packages:$HOME/opt/python/lib/python2.7/site-packages"
+   96  from pymongo import MongoClient
+   97  pip install --upgrade pip
+   98  mongo
+   99  from pymongo import MongoClient
+  100  export PYTHONPATH="/home/user/.guix-profile/lib/python2.7/site-packages:$HOME/opt/python/lib/python2.7/site-packages"
+  101  python
+  102  clear
+  103  cat gene_PIK3CA.vcf |bio-vcf --samples 2,3  --seval s.dp
+  104  cat gene_PIK3CA.vcf |bio-vcf --sfilter-samples 2,3  --seval s.dp --sfilter "s.dp>7"
+  105  cat gene_PIK3CA.vcf |bio-vcf --sfilter-samples 0,3 --sfilter 's.dp>20' --seval s.dp
+  106  cat gene_PIK3CA.vcf |bio-vcf --eval [r.chr,r.pos,r.info.ann] |grep ENST00000263967|wc -l
+  107  30
+  108  history
+  109  emacs PIK3CA.json
+  110  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json --jsonArray
+  111  ls
+  112  cat PIK3CA_exome.vcf |bio-vcf --template gatk_template.json |less
+  113  cat gatk_exome.vcf |bio-vcf --template gatk_tmplate.json |less
+  114  cat gatk_exome.vcf |bio-vcf --template gatk_template.json > gatk_exome.json
+  115  history
+  116  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json --jsonArray
+  117  mongoimport --db PIK3CA --collection vcf --drop --file gatk_exome.json
+  118  mongoimport --db PIK3CA --collection vcf --drop --file gatk_exome.json --jsonarray
+  119  mongoimport --db PIK3CA --collection vcf --drop --file gatk_exome.json --jsonArray
+  120  ls
+  121  cat gene_PIK3CA.vcf |bio-vcf --samples 2,3  --seval s.dp
+  122  ls
+  123  cat PIK3CA.json 
+  124* cat PIK3CA.vcf 
+  125  cat gene_PIK3CA.vcf |bio-vcf ----template PIK3CA_template.json |less
+  126  ls
+  127  cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json |less
+  128  cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json > PIK3CA.json
+  129  emacs PIK3CA.json 
+  130  cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json |less
+  131  cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json > PIK3CA.json
+  132  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json 
+  133  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json --jsonArray
+  134  cat PIK3CA.json
+  135  ls
+  136  clear
+  137  history
+  138  ls
+  139  cat PIK3CA.vcf |bio-vcf --template PIK3CA.json |less
+  140  cat PIK3CA.vcf |bio-vcf --template PIK3CA.json > PIK3CA.json
+  141  cat PIK3CA.json
+  142  emacs PIK3CA_template.json
+  143  cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json |less
+  144  cat PIK3CA.vcf |bio-vcf --template PIK3CA_template.json > PIK3CA.json
+  145  cat PIK3CA.json
+  146  CLEAR
+  147  clear
+  148  history
+  149  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json
+  150  mongoimport --db PIK3CA --collection vcf --drop --PIK3CA.json --jsonArray
+  151  ls
+  152  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA_template.json
+  153  mongoimport --db PIK3CA --collection vcf --drop --PIK3CA_template.json --jsonArray
+  154  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json --jsonArray
+  155  python
+  156  mongo
+  157  python
+  158  history
+  159  python
+  160  cat PIK3CA.vcf |bio-vcf --eval [r.chr,r.pos,r.info.ann] |grep ENST00000263967|wc -l
+  161  mongoimport --db PIK3CA --collection vcf --drop --file PIK3CA.json --jsonArray
+  162  from pymongo import MongoClient
+  163  client = MongoClient()
+  164  db = client.test
+  165  db = client.PIK3CA
+  166  python
+  167  clear
+  168  history
+
+
+>>>from pymongo import MongoClient
+>>> client = MongoClient()
+>>> db = client.PIK3CA
+cursor = db.vcf.find()
+>>> for i in cursor:
+...    print (i["rec"]["ann"])
+cursor = db.vcf.find()
+>>> for i in cursor:
+...    print ("ENST00000263967" in i["rec"]["ann"])
+
